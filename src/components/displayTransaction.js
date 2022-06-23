@@ -12,7 +12,7 @@ return (
              {item.transactionType == "Expense" ? <div className="transaction-item">
                 <div style= {{marginTop:"5%"}}>
             <h4 style={{paddingLeft: '12px',paddingTop: '25px'}}>
-                {item.item}</h4>
+                {item.items}</h4>
             </div>
             <div>
             <h4 style={{paddingLeft: '290px',paddingTop: '25px'}}>

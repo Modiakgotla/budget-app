@@ -1,5 +1,5 @@
 import React , {useState} from 'react'
-import { useNavigate} from  'react-router-dom';
+import { useHistory} from  'react-router-dom';
 import {Link} from "react-router-dom"
 import {signInWithEmailAndPassword} from 'firebase/auth';
 import {auth} from '../config/firebase'
@@ -14,14 +14,13 @@ const [password, setPassword] = useState("");
         height: '30px',
         marginTop:"3%"
     }
-    const navigate = useNavigate();
+    
+    let history = useHistory();
 
     const Login=(()=>{ 
 
         signInWithEmailAndPassword(auth,email,password).then(()=>{
-            navigate('/home');
-        }).catch((error) =>{
-            console.log(error);
+            history.push("/home");
         })
   
         })

@@ -6,7 +6,7 @@ import Home from './components/home'
 import Login from './components/login';
 import SignUp from './components/signup';
 import DisplayTransaction from './components/displayTransaction';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router,Switch, Route, } from 'react-router-dom';
 
 import {collection,getDocs} from 'firebase/firestore';
 function App() {
@@ -19,7 +19,7 @@ function App() {
   const addTransaction = ((amount, items, transactionType) => {
     setTransaction((item) => [...item, {
       amount: amount,
-      items: item,
+      items: items,
       transactionType: transactionType
     }])
 
@@ -31,16 +31,18 @@ function App() {
   
   
 
+    <Switch>
 
-
-      <Routes>
-        <Route exact path="/" element={<Login/>}></Route>
-        <Route path="/sign-up" element={<SignUp/>}></Route>
-         <Route path="/home" element={<Home/>}>
+    
+        <Route exact path="/" component={Login}></Route>
+        <Route path="/sign-up"component={SignUp}></Route>
+         <Route path="/home">
+          <Home list={transaction}  add={addTransaction}/>
         
         </Route> 
         
-      </Routes>
+     
+      </Switch>
     </Router>
     // <div>
     //   <Home/>

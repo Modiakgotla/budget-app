@@ -1,23 +1,21 @@
-import { useNavigate} from  'react-router-dom';
 import {Link} from "react-router-dom"
 import {createUserWithEmailAndPassword} from 'firebase/auth';
 import { useState } from 'react';
 import {auth} from "../config/firebase"
+import {useHistory} from "react-router-dom"
 function SignUp() {
  
 
     const [email,setEmail]=useState('');
     const [password,setPassword] = useState("");
    
-    let navigate = useNavigate();
+    let history = useHistory();
     
 
     const Register=(()=>{ 
 
         createUserWithEmailAndPassword(auth,email,password).then(()=>{
-            navigate('/home');
-        }).catch((error) =>{
-            console.log(error);
+            history.push("/home");
         })
   
         })

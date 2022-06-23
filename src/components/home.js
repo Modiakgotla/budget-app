@@ -11,7 +11,7 @@ function Home (props)
 
 
 useEffect(()=>{
-
+    let income=0
     let expense = 0;
 
     for (let index =0; index < props.list.length; index++) {
@@ -32,7 +32,7 @@ useEffect(()=>{
 return (
 <div className="container">
 <BudgetBalance expense = {expense} income = {income} />
-<DisplayTransaction list={props.list} />
+{/*<DisplayTransaction list={props.list} />*/}
 <AddItem add={props.add} />
 </div>
  )
